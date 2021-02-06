@@ -1,0 +1,22 @@
+<body></body>
+<script type="text/javascript">
+    var ua = navigator.userAgent.toLowerCase();
+    var isAndroid = ua.indexOf("android") > -1;
+    var isIPhone = ua.indexOf("iphone") > -1;
+		<!-- App Store Link for the Expo Go app -->
+    var link = isIPhone ? 'https://apps.apple.com/ao/app/expo-client/id982107779' : isAndroid ? 'https://play.google.com/store/apps/details?id=host.exp.exponent' : 'https://www.google.com/search?q=expo+go&oq=expo+go';
+
+    document.body.innerHTML += `
+        <h1>
+        Download <a href=${link}>Expo Go</a> and visit this link on your device
+        </h1>
+    `
+		<!-- Attempt to redirect to the Expo Go app -->
+    if(isIPhone){
+        window.location.href = 'exp://${VERCEL_URL}/ios-index.json';
+    }
+
+    if( isAndroid ){
+        window.location.href = 'exp://${VERCEL_URL}/android-index.json';
+    }
+</script>
