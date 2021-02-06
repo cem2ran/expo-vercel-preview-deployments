@@ -1,0 +1,1 @@
+expo export --public-url "https://$VERCEL_URL"
